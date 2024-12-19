@@ -2,13 +2,10 @@
 
 ###############################
 
+silent() { "$@" >/dev/null 2>&1; }
 
 echo "Installing Dependencies"
- apt-get install -y git
- apt-get install -y curl
- apt-get install -y sudo
- apt-get install -y mc
- apt-get install -y sqlite3
+silent apt-get install -y git curl sudo mc sqlite3
 echo "Installed Dependencies"
 
 echo "Installing Gitea"
@@ -61,8 +58,8 @@ echo "Created Service"
 
 
 echo "Cleaning up"
- apt-get -y autoremove
- apt-get -y autoclean
+silent apt-get -y autoremove
+silent apt-get -y autoclean
 echo "Cleaned"
 
 ###############################
